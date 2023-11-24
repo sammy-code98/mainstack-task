@@ -8,8 +8,9 @@ export default {
     extend: {
       colors: {
         primary: "#131316",
-        gray: "#56616B",
+        base_gray: "#56616B",
         base_white: "#FFF;",
+        secondary: "#EFF1F6",
       },
       fontFamily: {
         sans: ["Ubuntu", "sans-serif"],

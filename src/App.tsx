@@ -6,9 +6,11 @@ function App() {
   return (
     <>
       <Navigation />
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <div className="relative mx-auto max-w-screen-xl mt-12">
+        <body>
+
+        </body>
+      </div>
     </>
   )
 }
