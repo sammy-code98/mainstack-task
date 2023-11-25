@@ -6,7 +6,8 @@ export default function Balance(): JSX.Element {
     const series: ApexOptions['series'] = [
         {
             name: "Available Balance",
-            data: [10, 41, 35, 51, 49, 62],
+            data: [10, 41, 35, 25, 22, 32, 51, 55, 49, 62, 12]
+
         }
     ];
     const options: ApexOptions = {
