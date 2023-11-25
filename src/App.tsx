@@ -1,4 +1,5 @@
 import Navigation from "./components/Navigation"
+import Balance from "./components/Balance"
 
 
 function App() {
@@ -7,9 +8,8 @@ function App() {
     <>
       <Navigation />
       <div className="relative mx-auto max-w-screen-xl mt-12">
-        <body>
-
-        </body>
+        <Balance />
+        body
       </div>
     </>
   )
