@@ -11,6 +11,8 @@ export default {
         base_gray: "#56616B",
         base_white: "#FFF;",
         secondary: "#EFF1F6",
+        base_green: "#E3FCF2",
+        primary_green: "#075132",
       },
       fontFamily: {
         sans: ["Ubuntu", "sans-serif"],
