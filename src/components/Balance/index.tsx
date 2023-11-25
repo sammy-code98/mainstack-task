@@ -1,6 +1,6 @@
-import React from 'react'
 import ReactApexChart from "react-apexcharts";
 import { ApexOptions } from 'apexcharts';
+import BalanceCard from "./balanceCard";
 
 export default function Balance(): JSX.Element {
     const series: ApexOptions['series'] = [
@@ -71,7 +71,13 @@ export default function Balance(): JSX.Element {
                     </div>
                 </div>
             </div>
-            <div>cards</div>
+            <div className="mt-12">
+                <BalanceCard title={"Ledger Balance"} amount={"USD 0.00"} />
+                <BalanceCard title={"Total Payout"} amount={"USD 55,080.00"} />
+                <BalanceCard title={"Total Revenue"} amount={"USD 175,580.00"} />
+                <BalanceCard title={"Pending Payout"} amount={"USD 0.00"} />
+
+            </div>
         </div >
     )
 }
