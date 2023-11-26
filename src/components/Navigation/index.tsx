@@ -9,10 +9,11 @@ import {
     MdOutlineChat,
     MdMenu
 } from "react-icons/md";
+import ProfileCard from "./ProfileCard";
 
 export default function Navigation(): JSX.Element {
     return (
-        <header className='sticky z-50 top-0 px-12'>
+        <header className='sticky z-50 top-0 px-12 '>
             <nav className='bg-base_white px-4 py-4 border-2 border-base_white shadow-md rounded-full'>
                 <div className='flex justify-between items-center  mx-6'>
                     <img src={Logo} alt='componay-logo' />
@@ -51,6 +52,10 @@ export default function Navigation(): JSX.Element {
                     </div>
                 </div>
             </nav>
+            <div className="flex justify-end items-center">
+                <ProfileCard />
+
+            </div>
         </header>
     )
 }
