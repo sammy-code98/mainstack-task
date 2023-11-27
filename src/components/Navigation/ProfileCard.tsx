@@ -1,4 +1,3 @@
-import React from 'react'
 import {
     MdOutlineSettings,
     MdOutlineHistoryEdu,
@@ -21,7 +20,7 @@ const profileItems = [
 ]
 export default function ProfileCard() {
     return (
-        <div className='bg-base_white rounded-3xl shadow-md px-4 py-6 mt-1 w-1/4'>
+        <div className='bg-base_white rounded-3xl shadow-md px-4 py-6 mt-24 w-1/4 absolute top-0 '>
             <div className='flex  gap-4'>
                 <div>
                     <div className='rounded-full w-14 h-14 flex items-center justify-center  bg-primary text-base_white  font-semibold'>OJ</div>
