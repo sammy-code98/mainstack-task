@@ -35,7 +35,7 @@ export default function Transactions(): JSX.Element {
 
             </div>
             <div>
-                {openFilterDrawer ? (<FilterDrawer clickHandler={() => handleOpenFilterDrawer()} />) : null}
+                {openFilterDrawer ? (<FilterDrawer clickHandler={() => handleOpenFilterDrawer()} isOpen={openFilterDrawer} />) : null}
             </div>
         </div>
     )

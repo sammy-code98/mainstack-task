@@ -4,14 +4,18 @@ import { TransactionStatus, TransactionType, btnText } from '../../utils/data';
 import Select from 'react-select';
 
 interface FilterDrawerProps {
-  clickHandler: () => void
+  clickHandler: () => void,
+  isOpen: boolean
 }
 
 
-export default function FilterDrawer({ clickHandler }: FilterDrawerProps) {
+export default function FilterDrawer({ clickHandler, isOpen }: FilterDrawerProps) {
   // transition-transform translate-x-full
   return (
-    <div className='fixed top-0 right-0 z-50 h-screen px-8 py-4  overflow-y-auto  w-4/12 mt-2 bg-base_white rounded-3xl shadow-md'>
+    <div className={`fixed top-0 right-0 z-50 h-screen px-8 py-4 w-4/12 mt-2 bg-base_white rounded-3xl  transition duration-700 ease-in-out transform
+    ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+      style={{ boxShadow: `${isOpen ? "0 0 0 100000px rgba(0,0,0,.2)" : ""}` }}
+    >
       <div className='flex justify-between items-center'>
         <h3 className='text-primary font-bold text-2xl'>Filter</h3>
         <div>
