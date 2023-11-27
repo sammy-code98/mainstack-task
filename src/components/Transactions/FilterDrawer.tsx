@@ -1,4 +1,3 @@
-import React from 'react'
 import { MdClose } from "react-icons/md";
 import { TransactionStatus, TransactionType, btnText } from '../../utils/data';
 import Select from 'react-select';
@@ -8,9 +7,7 @@ interface FilterDrawerProps {
   isOpen: boolean
 }
 
-
 export default function FilterDrawer({ clickHandler, isOpen }: FilterDrawerProps) {
-  // transition-transform translate-x-full
   return (
     <div className={`fixed top-0 right-0 z-50 h-screen px-8 py-4 w-4/12 mt-2 bg-base_white rounded-3xl  transition duration-700 ease-in-out transform
     ${isOpen ? "translate-x-0" : "translate-x-full"}`}
@@ -28,7 +25,6 @@ export default function FilterDrawer({ clickHandler, isOpen }: FilterDrawerProps
             <div key={index} >
               <button className='py-2.5 px-4  text-primary font-semibold rounded-full border border-secondary bg-base_white focus:outline-none'>{text}</button>
             </div>
-
           )
         })}
       </div>

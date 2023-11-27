@@ -1,59 +1,8 @@
 import ReactApexChart from "react-apexcharts";
-import { ApexOptions } from 'apexcharts';
 import BalanceCard from "./balanceCard";
+import { options, series } from "../../utils/data";
 
 export default function Balance(): JSX.Element {
-    const series: ApexOptions['series'] = [
-        {
-            name: "Available Balance",
-            data: [10, 41, 35, 25, 22, 32, 51, 55, 49, 62, 12]
-
-        }
-    ];
-    const options: ApexOptions = {
-        colors: ["#FF5403"],
-        chart: {
-            toolbar: {
-                show: false
-            },
-            height: 350,
-            type: 'line',
-            zoom: {
-                enabled: false
-            }
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        stroke: {
-            curve: 'smooth',
-            width: 2,
-        },
-        grid: {
-            show: false
-        },
-        legend: {
-            show: false
-        },
-        yaxis: {
-            show: false,
-            labels: {
-                show: false,
-            },
-        },
-        xaxis: {
-            labels: {
-                show: false
-            },
-            axisBorder: {
-                show: false
-            },
-            axisTicks: {
-                show: false
-            }
-        },
-    }
-
     return (
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8' >
             <div className='col-span-2 p-6 shadow-sm'>
