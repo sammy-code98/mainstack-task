@@ -32,7 +32,7 @@ export default function ProfileCard() {
             </div>
             <div className='mt-6'>
                 {profileItems.map((items) => {
-                    return <div className='flex items-center gap-4 py-4 cursor-pointer hover:bg-secondary'>
+                    return <div className='flex items-center gap-4 py-4 cursor-pointer' key={items.title}>
                         <span className='text-base_gray'>
                             {items.icon}
                         </span>

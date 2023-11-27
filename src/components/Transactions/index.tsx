@@ -1,5 +1,7 @@
 import { MdKeyboardArrowDown, MdOutlineFileDownload } from "react-icons/md";
 import TransactionCard from './TransactionCard';
+import FilterDrawer from "./FilterDrawer";
+
 export default function Transactions(): JSX.Element {
     return (
         <div className='mt-12'>
@@ -22,6 +24,9 @@ export default function Transactions(): JSX.Element {
                 <TransactionCard />
                 <TransactionCard />
 
+            </div>
+            <div>
+                <FilterDrawer />
             </div>
         </div>
     )
