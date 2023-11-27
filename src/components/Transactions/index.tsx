@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { MdKeyboardArrowDown, MdOutlineFileDownload } from "react-icons/md";
 import TransactionCard from './TransactionCard';
 import FilterDrawer from "./FilterDrawer";
 
 export default function Transactions(): JSX.Element {
+    const [openFilterDrawer, setOpenFilterDrawer] = useState<boolean>(false)
+
+    const handleOpenFilterDrawer = () => {
+        setOpenFilterDrawer(!openFilterDrawer)
+    }
     return (
         <div className='mt-12'>
             <div className='flex justify-between items-center'>
@@ -11,8 +17,11 @@ export default function Transactions(): JSX.Element {
                     <p className='text-base_gray'>Your transactions for the last 7 days</p>
                 </div>
                 <div className='flex gap-8'>
-                    <button className='flex  justify-center items-center gap-2 text-base font-semibold bg-secondary text-primary rounded-full px-8 py-2'>Filter <MdKeyboardArrowDown /> </button>
-                    <button className='flex  justify-center items-center gap-2 text-base font-semibold bg-secondary text-primary rounded-full px-8 py-2'>Export list <MdOutlineFileDownload /> </button>
+                    <button
+                        className='flex justify-center items-center gap-2 text-base font-semibold bg-secondary text-primary rounded-full px-8 py-2 cursor-pointer'
+                        onClick={handleOpenFilterDrawer}>Filter <MdKeyboardArrowDown />
+                    </button>
+                    <button className='flex justify-center items-center gap-2 text-base font-semibold bg-secondary text-primary rounded-full px-8 py-2 cursor-pointer'>Export list <MdOutlineFileDownload /> </button>
 
                 </div>
 
@@ -26,7 +35,7 @@ export default function Transactions(): JSX.Element {
 
             </div>
             <div>
-                <FilterDrawer />
+                {openFilterDrawer ? (<FilterDrawer clickHandler={() => handleOpenFilterDrawer()} isOpen={openFilterDrawer} />) : null}
             </div>
         </div>
     )
