@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Logo from "../../assets/logo.svg"
 import {
     MdOutlineHome,
@@ -9,10 +10,16 @@ import {
     MdOutlineChat,
     MdMenu
 } from "react-icons/md";
+import ProfileCard from "./ProfileCard";
 
 export default function Navigation(): JSX.Element {
+    const [openModal, setOpenModal] = useState<boolean>(false)
+
+    const handleOpenModal = () => {
+        setOpenModal(!openModal)
+    }
     return (
-        <header className='sticky z-50 top-0 px-12'>
+        <header className='sticky z-50 top-0 px-12 '>
             <nav className='bg-base_white px-4 py-4 border-2 border-base_white shadow-md rounded-full'>
                 <div className='flex justify-between items-center  mx-6'>
                     <img src={Logo} alt='componay-logo' />
@@ -43,7 +50,8 @@ export default function Navigation(): JSX.Element {
                         <div className='cursor-pointer text-base_gray'>
                             <MdOutlineChat size="1.5rem" />
                         </div>
-                        <div className='flex justify-between gap-4 items-center bg-secondary rounded-full py-1 px-2 w-3/4 text-base_gray cursor-pointer' >
+                        <div className='flex justify-between gap-4 items-center bg-secondary rounded-full py-1 px-2 w-3/4 text-base_gray cursor-pointer'
+                            onClick={handleOpenModal}>
                             <div className='rounded-full w-11 h-11 flex items-center justify-center  bg-primary text-base_white  font-semibold'>OJ</div>
                             <MdMenu size='1.5rem' />
 
@@ -51,6 +59,15 @@ export default function Navigation(): JSX.Element {
                     </div>
                 </div>
             </nav>
+            <div>
+                {openModal ? (
+                    <div className="flex justify-end items-center">
+                        <ProfileCard />
+
+                    </div>
+                ) : null}
+            </div>
+
         </header>
     )
 }
