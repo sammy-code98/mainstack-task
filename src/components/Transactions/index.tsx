@@ -42,9 +42,6 @@ export default function Transactions(): JSX.Element {
                         type={transact.type} />
                 })}
 
-                {/* <TransactionCard /> */}
-                {/* <TransactionCard /> */}
-                {/* <TransactionCard /> */}
 
             </div>
             <div>
