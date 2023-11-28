@@ -1,6 +1,7 @@
 import { MdCallReceived, MdOutlineArrowOutward } from "react-icons/md";
 
 interface TransactionCardProps {
+
     product_name: string,
     name: string,
     amount: string,
@@ -17,9 +18,11 @@ export default function TransactionCard({ product_name, name, amount, date, stat
                     {type === 'deposit' ? <MdCallReceived size="1.5rem" /> : <MdOutlineArrowOutward size="1.5rem" />}
                 </div>
                 <div>
-                    <p className='text-base_gray text-base font-semibold'>{product_name} </p>
-                    <p className='text-base_gray text-sm font-medium mt-2'>
-                        {type === 'deposit' ? (<span>{name}</span>) : (<span>{status}</span>)}
+                    <p className='text-base_gray text-base font-semibold'>{type === 'deposit' ? (<span>{product_name}</span>) : 'Cash withdrawal'} </p>
+                    <p className='text-sm font-medium mt-2'>
+                        {type === 'deposit' ?
+                            (<span className="text-base_gray">{name}</span>) :
+                            (<span className={`${status === 'successful' ? 'text-secondary_green' : 'text-base_yellow'}`}>{status}</span>)}
                     </p>
                 </div>
             </div>
