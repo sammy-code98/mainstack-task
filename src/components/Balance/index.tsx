@@ -1,15 +1,19 @@
 import ReactApexChart from "react-apexcharts";
 import BalanceCard from "./balanceCard";
 import { options, series } from "../../utils/data";
+import { useQuery } from '@tanstack/react-query'
+import { getWallet } from "../../api/index.api";
+
 
 export default function Balance(): JSX.Element {
+    const { data } = useQuery({ queryKey: ['wallet'], queryFn: getWallet })
     return (
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8' >
             <div className='col-span-2 p-6 shadow-sm'>
                 <div className='flex items-center gap-32'>
                     <div>
                         <p className='text-base_gray font-medium text-base'>Available Balance</p>
-                        <h3 className='text_primary text-4xl font-bold mt-2'>USD 120,500.00</h3>
+                        <h3 className='text_primary text-4xl font-bold mt-2'>USD {data?.balance}</h3>
                     </div>
                     <button className='bg-primary px-12 py-4 rounded-full text-base_white font-semibold hover:opacity-50'>Withdraw</button>
                 </div>
@@ -22,10 +26,10 @@ export default function Balance(): JSX.Element {
                 </div>
             </div>
             <div className="mt-12">
-                <BalanceCard title={"Ledger Balance"} amount={"USD 0.00"} />
-                <BalanceCard title={"Total Payout"} amount={"USD 55,080.00"} />
-                <BalanceCard title={"Total Revenue"} amount={"USD 175,580.00"} />
-                <BalanceCard title={"Pending Payout"} amount={"USD 0.00"} />
+                <BalanceCard title={"Ledger Balance"} amount={data?.ledger_balance} />
+                <BalanceCard title={"Total Payout"} amount={data?.total_payout} />
+                <BalanceCard title={"Total Revenue"} amount={data?.total_revenue} />
+                <BalanceCard title={"Pending Payout"} amount={data?.pending_payout} />
 
             </div>
         </div >

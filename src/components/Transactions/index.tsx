@@ -2,8 +2,12 @@ import { useState } from "react";
 import { MdKeyboardArrowDown, MdOutlineFileDownload } from "react-icons/md";
 import TransactionCard from './TransactionCard';
 import FilterDrawer from "./FilterDrawer";
+import { useQuery } from '@tanstack/react-query'
+import { getTransactions } from "../../api/index.api";
 
 export default function Transactions(): JSX.Element {
+    const { data } = useQuery({ queryKey: ['transactions'], queryFn: getTransactions })
+
     const [openFilterDrawer, setOpenFilterDrawer] = useState<boolean>(false)
 
     const handleOpenFilterDrawer = () => {
@@ -13,7 +17,7 @@ export default function Transactions(): JSX.Element {
         <div className='mt-12'>
             <div className='flex justify-between items-center'>
                 <div>
-                    <h4 className='text-primary text-xl font-bold'>24 Transactions</h4>
+                    <h4 className='text-primary text-xl font-bold'>{data?.length} Transactions</h4>
                     <p className='text-base_gray'>Your transactions for the last 7 days</p>
                 </div>
                 <div className='flex gap-8'>
