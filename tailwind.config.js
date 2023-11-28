@@ -13,6 +13,8 @@ export default {
         secondary: "#EFF1F6",
         base_green: "#E3FCF2",
         primary_green: "#075132",
+        primary_red: "#F9E3E0",
+        base_red: "#961100",
       },
       fontFamily: {
         sans: ["Ubuntu", "sans-serif"],

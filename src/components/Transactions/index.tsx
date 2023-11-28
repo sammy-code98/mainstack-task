@@ -32,10 +32,19 @@ export default function Transactions(): JSX.Element {
             </div>
             <hr className='mt-6' />
             <div className='mt-8'>
-                <TransactionCard />
-                <TransactionCard />
-                <TransactionCard />
-                <TransactionCard />
+                {data?.map((transact) => {
+                    return <TransactionCard
+                        product_name={""}
+                        name={""}
+                        amount={transact.amount}
+                        date={transact.date}
+                        status={""}
+                        type={transact.type} />
+                })}
+
+                {/* <TransactionCard /> */}
+                {/* <TransactionCard /> */}
+                {/* <TransactionCard /> */}
 
             </div>
             <div>
