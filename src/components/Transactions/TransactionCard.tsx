@@ -1,7 +1,6 @@
 import { MdCallReceived, MdOutlineArrowOutward } from "react-icons/md";
 
 interface TransactionCardProps {
-
     product_name: string,
     name: string,
     amount: string,
