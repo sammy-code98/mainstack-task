@@ -32,7 +32,7 @@ export default function Transactions(): JSX.Element {
             </div>
             <hr className='mt-6' />
             <div className='mt-8'>
-                {data?.map((transact) => {
+                {data?.map((transact: { metadata: { product_name: string; name: string; }; amount: string; date: string; status: string; type: string; }) => {
                     return <TransactionCard
                         product_name={transact.metadata?.product_name}
                         name={transact.metadata?.name}
