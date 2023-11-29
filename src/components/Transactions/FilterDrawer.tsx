@@ -56,12 +56,12 @@ export default function FilterDrawer({ clickHandler, isOpen }: FilterDrawerProps
       <div className='mt-24 lg:mt-52'>
         <div className='flex justify-between items-center'>
 
-          <button className='py-4 px-10 lg:px-20 text-center text-primary font-semibold rounded-full border border-secondary bg-base_white focus:outline-none'
+          <button className='py-2 lg:py-4 px-10 lg:px-20 text-center text-primary font-semibold rounded-full border border-secondary bg-base_white focus:outline-none'
             onClick={clickHandler}
           >
             Clear
           </button>
-          <button className='bg-primary px-10 lg:px-20 py-4 rounded-full text-base_white font-semibold hover:opacity-50'
+          <button className='bg-primary py-2 px-10 lg:px-20 lg:py-4 rounded-full text-base_white font-semibold hover:opacity-50'
             onClick={clickHandler}>Apply</button>
 
         </div>
