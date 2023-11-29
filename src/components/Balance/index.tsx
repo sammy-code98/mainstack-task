@@ -1,12 +1,29 @@
 import ReactApexChart from "react-apexcharts";
+import { ApexOptions } from "apexcharts";
 import BalanceCard from "./balanceCard";
-import { options, series } from "../../utils/data";
+import { options } from "../../utils/data";
 import { useQuery } from '@tanstack/react-query'
-import { getWallet } from "../../api/index.api";
+import { getWallet, getTransactions } from "../../api/index.api";
 
 
 export default function Balance(): JSX.Element {
+
+
     const { isLoading, data } = useQuery({ queryKey: ['wallet'], queryFn: getWallet })
+    const { data: transdata, isLoading: loading } = useQuery({ queryKey: ['transactionsGraph'], queryFn: getTransactions })
+
+    const chartData = transdata?.flatMap((tdata: { date: string; amount: string; }) => ({
+        x: tdata.date,
+        y: tdata.amount
+    }))
+
+    const series: ApexOptions["series"] = [
+        {
+            name: "Available Balance",
+            data: chartData,
+        },
+    ];
+
     return (
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8' >
             <div className='col-span-2 p-6 shadow-sm'>
@@ -18,13 +35,14 @@ export default function Balance(): JSX.Element {
                     <button className='bg-primary px-12 py-4 rounded-full text-base_white font-semibold hover:opacity-50'>Withdraw</button>
                 </div>
                 <div className='mt-8'>
-                    <ReactApexChart options={options} series={series} type="line" height={350} />
-                    <div className='flex justify-between items-center'>
-                        <p className='text-base_gray text-sm'>Apr 1 ,  2022</p>
-                        <p className='text-base_gray text-sm'>Apr 30 ,  2022</p>
-                    </div>
+                    {loading ?
+                        <p className="text-center mt-4 text-primary text-sm">Loading Chart</p>
+                        : <ReactApexChart options={options} series={series} type="line" height={350} />
+                    }
+
                 </div>
             </div>
+
             <div className="mt-12">
                 <BalanceCard title={"Ledger Balance"} amount={isLoading ? '0.00' : data?.ledger_balance} />
                 <BalanceCard title={"Total Payout"} amount={isLoading ? '0.00' : data?.total_payout} />
