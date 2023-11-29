@@ -16,12 +16,12 @@ export default function Transactions(): JSX.Element {
     }
     return (
         <div className='mt-12'>
-            <div className='flex justify-between items-center'>
-                <div>
-                    <h4 className='text-primary text-xl font-bold'>{data?.length} Transactions</h4>
+            <div className='flex justify-between items-center flex-wrap'>
+                <div className="pl-4">
+                    <h4 className='text-primary text-lg lg:text-xl font-bold'>{data?.length} Transactions</h4>
                     <p className='text-base_gray'>Your transactions for the last 7 days</p>
                 </div>
-                <div className='flex gap-8'>
+                <div className='flex px-4  gap-12 lg:gap-8 mt-2'>
                     <button
                         className='flex justify-center items-center gap-2 text-base font-semibold bg-secondary text-primary rounded-full px-8 py-2 cursor-pointer'
                         onClick={handleOpenFilterDrawer}>Filter <MdKeyboardArrowDown />

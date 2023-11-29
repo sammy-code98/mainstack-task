@@ -6,6 +6,7 @@ import Transactions from "./components/Transactions"
 function App() {
 
   return (
+
     <>
       <Navigation />
       <div className="relative mx-auto max-w-screen-xl mt-12">

@@ -14,7 +14,7 @@ export default function BalanceCard({ title, amount }: BalanceCardProps): JSX.El
                     <MdInfoOutline size="1.5rem" />
                 </div>
             </div>
-            <h3 className='text_primary text-4xl font-bold mt-2'>USD {amount}</h3>
+            <h3 className='text_primary text-2xl lg:text-4xl font-bold mt-2'>USD {amount}</h3>
         </div>
     )
 }
