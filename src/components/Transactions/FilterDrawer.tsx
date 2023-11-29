@@ -9,7 +9,7 @@ interface FilterDrawerProps {
 
 export default function FilterDrawer({ clickHandler, isOpen }: FilterDrawerProps) {
   return (
-    <div className={`fixed top-0 right-0 z-50 h-screen px-8 py-4 w-full lg:w-4/12 mt-2 bg-base_white rounded-3xl  transition duration-700 ease-in-out transform
+    <div className={`fixed top-0 right-0 z-50 h-screen px-4 lg:px-8 py-4 w-full lg:w-4/12 mt-2 bg-base_white rounded-3xl  transition duration-700 ease-in-out transform
     ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       style={{ boxShadow: `${isOpen ? "0 0 0 100000px rgba(0,0,0,.2)" : ""}` }}
     >
