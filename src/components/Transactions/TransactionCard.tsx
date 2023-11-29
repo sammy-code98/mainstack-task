@@ -9,7 +9,7 @@ interface TransactionCardProps {
     type: string,
 
 }
-export default function TransactionCard({ product_name, name, amount, date, status, type }: TransactionCardProps) {
+export default function TransactionCard({ product_name, name, amount, date, status, type }: TransactionCardProps): JSX.Element {
     return (
         <div className='flex justify-between items-center rounded-sm p-4 mb-4 cursor-pointer'>
             <div className='flex justify-center items-center gap-6'>

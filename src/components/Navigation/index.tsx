@@ -16,7 +16,7 @@ import { getUser } from "../../api/index.api";
 
 
 export default function Navigation(): JSX.Element {
-    const { data } = useQuery({ queryKey: ['user'], queryFn: getUser })
+    const { isLoading, data } = useQuery({ queryKey: ['user'], queryFn: getUser })
     const firstLetter = data?.first_name.charAt(0)
     const secondLetter = data?.last_name.charAt(0)
     const [openModal, setOpenModal] = useState<boolean>(false)
@@ -58,9 +58,16 @@ export default function Navigation(): JSX.Element {
                         </div>
                         <div className='flex justify-between gap-4 items-center bg-secondary rounded-full py-1 px-2 w-3/4 text-base_gray cursor-pointer'
                             onClick={handleOpenModal}>
-                            <div className='rounded-full w-11 h-11 flex items-center justify-center  bg-primary text-base_white  font-semibold'>
-                                {firstLetter}{secondLetter}
-                            </div>
+                            {isLoading ? (
+                                <div className="animate-pulse">
+                                    <div className='rounded-full w-11 h-11 bg-secondary'></div>
+                                </div>
+                            ) : (
+                                    <div className='rounded-full w-11 h-11 flex items-center justify-center  bg-primary text-base_white  font-semibold'>
+                                        {firstLetter}{secondLetter}
+                                    </div>
+                            )}
+
                             <MdMenu size='1.5rem' />
 
                         </div>
