@@ -1,5 +1,6 @@
 import { ApexOptions } from "apexcharts";
 
+
 export const TransactionType = [
   { value: "store", label: "Store Transactions" },
   { value: "tipped", label: "Get Tipped " },
@@ -16,13 +17,6 @@ export const TransactionStatus = [
 ];
 
 export const btnText = ["Today", "Last 7 days", "This month", "Last 3 months"];
-
-export const series: ApexOptions["series"] = [
-  {
-    name: "Available Balance",
-    data: [10, 41, 35, 25, 22, 32, 51, 55, 49, 62, 12],
-  },
-];
 
 export const options: ApexOptions = {
   colors: ["#FF5403"],
@@ -56,14 +50,9 @@ export const options: ApexOptions = {
     },
   },
   xaxis: {
+    type: "datetime",
     labels: {
-      show: false,
-    },
-    axisBorder: {
-      show: false,
-    },
-    axisTicks: {
-      show: false,
+      format: "MMM d , yyyy",
     },
   },
 };

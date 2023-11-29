@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { Key, useState } from "react";
 import { MdKeyboardArrowDown, MdOutlineFileDownload } from "react-icons/md";
 import TransactionCard from './TransactionCard';
 import FilterDrawer from "./FilterDrawer";
 import { useQuery } from '@tanstack/react-query'
 import { getTransactions } from "../../api/index.api";
+import TransactionLoader from "./TransactionLoader";
 
 export default function Transactions(): JSX.Element {
-    const { data } = useQuery({ queryKey: ['transactions'], queryFn: getTransactions })
+    const { isLoading, data } = useQuery({ queryKey: ['transactions'], queryFn: getTransactions })
 
     const [openFilterDrawer, setOpenFilterDrawer] = useState<boolean>(false)
 
@@ -32,8 +33,11 @@ export default function Transactions(): JSX.Element {
             </div>
             <hr className='mt-6' />
             <div className='mt-8'>
-                {data?.map((transact: { metadata: { product_name: string; name: string; }; amount: string; date: string; status: string; type: string; }) => {
+                {isLoading ? (<TransactionLoader />) : (
+                    <>
+                        {data?.map((transact: { metadata: { product_name: string; name: string; }; amount: string; date: string; status: string; type: string; }, index: Key | null | undefined) => {
                     return <TransactionCard
+                        key={index}
                         product_name={transact.metadata?.product_name}
                         name={transact.metadata?.name}
                         amount={transact.amount}
@@ -41,7 +45,8 @@ export default function Transactions(): JSX.Element {
                         status={transact.status}
                         type={transact.type} />
                 })}
-
+                    </>
+                )}
 
             </div>
             <div>
